@@ -1,0 +1,377 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #25364a;
+    background-color: #f4f8fc;
+}
+
+/* Navigation bar */
+.navbar {
+    min-height: 72px;
+    padding: 12px 5%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 8px rgba(24, 49, 83, 0.06);
+}
+
+.navbar h1 {
+    margin: 0;
+    color: navy;
+    font-size: 26px;
+    white-space: nowrap;
+}
+
+.navbar span {
+    color: teal;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px 14px;
+}
+
+.links a {
+    padding: 8px 4px;
+    color: #183153;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.links a:hover {
+    color: teal;
+}
+
+/* Welcome section */
+.welcome {
+    padding: 25px 20px 12px;
+    text-align: center;
+}
+
+.welcome h2 {
+    margin: 0 0 8px;
+    color: navy;
+    font-size: 28px;
+}
+
+.welcome p {
+    margin: 0;
+    color: #526579;
+    line-height: 1.5;
+}
+
+/* Upload section */
+.upload {
+    width: min(680px, calc(100% - 40px));
+    margin: 18px auto 30px;
+    padding: 26px 30px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(24, 49, 83, 0.1);
+}
+
+.upload h2,
+.history h2,
+.about h2 {
+    margin: 0 0 10px;
+    color: navy;
+}
+
+.upload-description {
+    max-width: 520px;
+    margin: 0 auto 18px;
+    color: #526579;
+    line-height: 1.5;
+}
+
+.drop-area {
+    min-height: 150px;
+    padding: 20px;
+    border: 2px dashed #8bbec4;
+    border-radius: 10px;
+    background-color: #f1f8fb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #183153;
+    cursor: pointer;
+}
+
+.drop-area:hover,
+.drop-area.drag-over {
+    border-color: teal;
+    background-color: #e8f5f7;
+}
+
+.upload-icon {
+    color: teal;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.file-hint {
+    color: #6b7d8e;
+    font-size: 13px;
+}
+
+#cifFile {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.drop-area:focus-within {
+    outline: 2px solid teal;
+}
+
+.selected-file {
+    margin: 12px 0;
+    color: #526579;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+button {
+    padding: 11px 22px;
+    border: 0;
+    border-radius: 6px;
+    background-color: teal;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkslategray;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #83cbd0;
+    outline-offset: 3px;
+}
+
+.message {
+    min-height: 20px;
+    margin: 12px 0 0;
+    font-size: 14px;
+}
+
+.prediction-result {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: left;
+    background-color: #f1f8fb;
+    border: 1px solid #d6e8ec;
+    border-radius: 10px;
+}
+
+.prediction-result[hidden] {
+    display: none;
+}
+
+.prediction-result h3 {
+    margin: 0 0 8px;
+    color: navy;
+    text-align: center;
+}
+
+.result-material {
+    margin: 0 0 14px;
+    color: #183153;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.result-details {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.result-details div {
+    min-width: 0;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+.result-details dt {
+    color: #60758a;
+    font-size: 12px;
+}
+
+.result-details dd {
+    margin: 4px 0 0;
+    color: #183153;
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.result-conductivity {
+    margin: 16px 0 0;
+    color: navy;
+    text-align: center;
+}
+
+.result-conductivity strong {
+    color: teal;
+    font-size: 20px;
+}
+
+/* Statistics cards */
+.heading {
+    margin: 30px 0 18px;
+    color: navy;
+    text-align: center;
+}
+
+.cards {
+    width: min(1000px, calc(100% - 40px));
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card {
+    min-width: 0;
+    padding: 20px 16px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(24, 49, 83, 0.1);
+}
+
+.card h2 {
+    margin: 0 0 8px;
+    color: teal;
+    font-size: 25px;
+}
+
+.stat-label {
+    margin: 0;
+    color: #183153;
+    font-weight: 600;
+}
+
+.stat-description {
+    margin: 9px 0 0;
+    color: #66788a;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* History and About sections */
+.history,
+.about {
+    width: min(1000px, calc(100% - 40px));
+    margin: 0 auto 24px;
+    padding: 24px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(24, 49, 83, 0.08);
+}
+
+.history p,
+.about p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #526579;
+    line-height: 1.6;
+}
+
+.history-list {
+    max-width: 720px;
+    margin: 14px auto 0;
+    padding: 0;
+    list-style: none;
+}
+
+.history-list li {
+    padding: 10px 12px;
+    color: #183153;
+    border-top: 1px solid #e4edf2;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .links {
+        justify-content: flex-start;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    .links {
+        gap: 2px 12px;
+    }
+
+    .links a {
+        padding: 6px 0;
+        font-size: 13px;
+    }
+
+    .welcome {
+        padding: 22px 20px 8px;
+    }
+
+    .welcome h2 {
+        font-size: 23px;
+    }
+
+    .upload {
+        width: calc(100% - 28px);
+        padding: 22px 18px;
+        margin-top: 14px;
+    }
+
+    .cards {
+        width: calc(100% - 28px);
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .history,
+    .about {
+        width: calc(100% - 28px);
+        padding: 20px 16px;
+    }
+
+    .result-details {
+        grid-template-columns: 1fr;
+    }
+}

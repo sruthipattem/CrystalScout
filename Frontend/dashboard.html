@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="crystalscout-api-url" content="http://127.0.0.1:8000">
+    <title>CrystalScout | Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h1>Crystal<span>Scout</span></h1>
+
+        <div class="links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#predict">Predict Conductivity</a>
+            <a href="#candidates">Explore Candidates</a>
+            <a href="#history">Prediction History</a>
+            <a href="#about">About</a>
+            <a href="index.html">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <header class="welcome">
+        <h2>Welcome to CrystalScout!</h2>
+        <p>Discover and predict lithium-ion conducting materials with machine learning.</p>
+    </header>
+
+    <!-- Upload Section -->
+    <div class="upload" id="predict">
+
+        <h2>Predict Ionic Conductivity</h2>
+
+        <p class="upload-description">Select a crystal structure CIF file. It will be used to predict the material's ionic conductivity.</p>
+
+        <label class="drop-area" id="dropArea" for="cifFile">
+            <span class="upload-icon" aria-hidden="true">+</span>
+            <span><strong>Choose a CIF file</strong> or drag it here</span>
+            <span class="file-hint">CIF files only (.cif)</span>
+            <input type="file" id="cifFile" accept=".cif">
+        </label>
+        <p class="selected-file" id="selectedFile" aria-live="polite">No file selected</p>
+        <button id="uploadButton" type="button">Predict conductivity</button>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+
+        <section class="prediction-result" id="predictionResult" aria-live="polite" hidden>
+            <h3>Prediction result</h3>
+            <p class="result-material" id="resultMaterial"></p>
+            <dl class="result-details">
+                <div><dt>Model</dt><dd id="resultModel"></dd></div>
+                <div><dt>Features</dt><dd id="resultFeatureCount"></dd></div>
+                <div><dt>Space group</dt><dd id="resultSpaceGroup"></dd></div>
+                <div><dt>Lattice (a, b, c)</dt><dd id="resultLattice"></dd></div>
+                <div><dt>Angles (α, β, γ)</dt><dd id="resultAngles"></dd></div>
+                <div><dt>Predicted log₁₀ conductivity</dt><dd id="resultLogConductivity"></dd></div>
+            </dl>
+            <p class="result-conductivity">Predicted conductivity: <strong id="resultConductivity"></strong></p>
+        </section>
+
+    </div>
+
+    <!-- Statistics Section -->
+    <h2 class="heading">Project Overview</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>599</h2>
+            <p class="stat-label">OBELiX Records</p>
+            <p class="stat-description">Experimental conductivity records used in the project.</p>
+        </div>
+
+        <div class="card">
+            <h2>139</h2>
+            <p class="stat-label">ML Features</p>
+            <p class="stat-description">Material descriptors used by the prediction model.</p>
+        </div>
+
+        <div class="card" id="candidates">
+            <h2>10,889</h2>
+            <p class="stat-label">Screened Candidates</p>
+            <p class="stat-description">Materials Project candidates screened for exploration.</p>
+        </div>
+
+        <div class="card">
+            <h2>Extra Trees</h2>
+            <p class="stat-label">Selected ML Model</p>
+            <p class="stat-description">The model selected for conductivity prediction.</p>
+        </div>
+
+    </div>
+
+    <section class="history" id="history">
+        <h2>Prediction History</h2>
+        <p id="historyEmpty">Predictions from this session will appear here.</p>
+        <ul class="history-list" id="historyList" aria-live="polite"></ul>
+    </section>
+
+    <!-- About Section -->
+    <div class="about" id="about">
+        <h2>About CrystalScout</h2>
+
+        <p>
+            CrystalScout uses Machine Learning to predict
+            ionic conductivity and identify promising
+            solid-state electrolyte materials.
+        </p>
+    </div>
+
+</body>
+</html>

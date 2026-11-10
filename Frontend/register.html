@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CrystalScout | Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+            <h1>Crystal<span>Scout</span></h1>
+        </div>
+
+        <div class="login">
+
+            <h2>Create Account</h2>
+
+            <form id="registerForm">
+
+                <input type="text" id="username"
+                placeholder="Username" required>
+
+                <br><br>
+
+                <input type="email" id="email"
+                placeholder="Email" required>
+
+                <br><br>
+
+                <input type="password" id="password"
+                placeholder="Create Password" required>
+
+                <br><br>
+
+                <input type="password" id="confirmPassword"
+                placeholder="Confirm Password" required>
+
+                <p>Password must contain:</p>
+                <p>8 characters, uppercase, lowercase, number and special character.</p>
+
+                <button type="submit">Register</button>
+
+                <p id="message"></p>
+
+            </form>
+
+            <p>Already have an account?
+                <a href="index.html">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="register.js"></script>
+
+</body>
+</html>

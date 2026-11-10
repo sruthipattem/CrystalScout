@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrystalScout | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="login-page">
+    <main class="login-card">
+        <div class="logo">
+            <h1>Crystal<span>Scout</span></h1>
+            <p class="tagline">Discover. Predict. Explore.</p>
+        </div>
+
+        <form class="login-form" id="loginForm" novalidate>
+            <h2>Welcome Back</h2>
+            <p class="login-intro">Sign in to continue exploring materials.</p>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+
+            <p class="form-message" id="loginMessage" role="alert" aria-live="polite"></p>
+            <button type="submit" id="loginButton">Login</button>
+        </form>
+
+        <p class="register-prompt">New to CrystalScout? <a href="register.html">Create an account</a></p>
+        <p class="demo-note">Frontend demonstration only. Login details are not checked against an account yet.</p>
+    </main>
+</body>
+</html>
